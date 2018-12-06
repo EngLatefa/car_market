@@ -1,11 +1,13 @@
 from django.db import models
 from django.urls import reverse
 
+
 class Car(models.Model):
 	make = models.CharField(max_length=120)
 	model = models.CharField(max_length=120)
 	year = models.IntegerField()
-
+	car_img = models.ImageField(upload_to='car_logos', null=True, blank=True)
+	
 	def __str__(self):
 		return "{} {} - {}".format(self.make, self.model, self.year)
 

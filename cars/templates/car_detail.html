@@ -1,15 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Car Detail</title>
-</head>
-<body>
-		<h1>
-			{{car.make}} - {{car.model}}
-			<small>
-				{{car.year}}
-			</small>
-		</h1>
-		<hr>
-</body>
-</html>
+{% extends "base.html" %} 
+
+{% block title %}Details{% endblock title %} 
+
+{% block content %}
+<br>
+<div class="card text-center">
+    <div class="card my-card" >
+        <img src="{{car.car_image.url}}" class="img-fluid">
+          <div class="card-body">
+            <h5 class="card-title"><p>{{car.make}}</p><p>{{car.model}}</p></h5>
+            <p> class="card-text"><p>{{car.year}}</p></p>
+            <br><a href="{% url 'car-update' car.id %}" class="btn btn-outline-success">Update</a>
+            <a href="{% url 'car-delete' car.id %}" class="btn btn-outline-danger">Delete</a><br>
+          </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
